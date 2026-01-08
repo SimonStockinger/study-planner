@@ -2,7 +2,6 @@ import { useDroppable } from "@dnd-kit/core";
 import type { Semester } from "../domain/semester";
 import type { Module } from "../domain/module";
 import { ModuleCard } from "./ModuleCard";
-import "../styles/semesterRow.css";
 
 type Props = {
   semesters: Semester[];
@@ -15,7 +14,6 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
 
   return (
     <div className="semester-grid" style={{ width: "100%" }}>
-      {/* Header */}
       <div
         className="semester-row"
         style={{
@@ -32,7 +30,6 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
         <div>Summe ECTS</div>
       </div>
 
-      {/* Semester-Zeilen */}
       {semesters.map((semester) => {
         const semesterECTS = categories.reduce((sum, cat) => {
           const ids = semester.modulesByCategory[cat] ?? [];
@@ -47,10 +44,8 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
             className="semester-row"
             style={{ gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px` }}
           >
-            {/* Label */}
             <div className="semester-label">{semester.label}</div>
 
-            {/* Kategorie-Zellen */}
             {categories.map((cat) => {
               const moduleIds = semester.modulesByCategory[cat] ?? [];
               return (
@@ -63,7 +58,6 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
               );
             })}
 
-            {/* ECTS */}
             <div className="semester-cell" style={{ fontWeight: 600, background: "#f9f9f9" }}>
               {semesterECTS} ({cumulativeECTS})
             </div>
@@ -71,7 +65,6 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
         );
       })}
 
-      {/* Gesamt-ECTS */}
       <div
         style={{
           display: "grid",

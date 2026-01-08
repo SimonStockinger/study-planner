@@ -1,7 +1,6 @@
-/* Grid Container */
 .semester-grid {
   display: grid;
-  grid-auto-rows: auto; /* Zeilenhöhe automatisch, abhängig vom Inhalt */
+  grid-auto-rows: auto;
   width: 100%;
   overflow-x: auto;
   background: #f9f9f9;
@@ -9,7 +8,6 @@
   gap: 4px;
 }
 
-/* Header-Zeile */
 .semester-grid-header {
   display: grid;
   grid-template-columns: 180px repeat(var(--category-count, 3), 1fr);
@@ -21,7 +19,6 @@
   z-index: 10;
 }
 
-/* Header-Zellen */
 .semester-label-header,
 .category-header {
   padding: 8px;
@@ -30,16 +27,14 @@
   background: #f0f0f0;
 }
 
-/* Jede Semester-Zeile */
 .semester-row {
   display: grid;
   grid-template-columns: 180px repeat(var(--category-count, 3), 1fr);
   gap: 8px;
   margin-bottom: 4px;
-  align-items: stretch; /* sorgt dafür, dass alle Zellen die gleiche Höhe haben */
+  align-items: stretch;
 }
 
-/* Semester Label (erste Spalte) */
 .semester-label {
   padding: 8px;
   background: #fafafa;
@@ -50,7 +45,6 @@
   justify-content: center;
 }
 
-/* Kategorie-Zellen */
 .semester-cell {
   padding: 8px;
   border: 1px solid #eee;
@@ -59,17 +53,15 @@
   flex-direction: column;
   gap: 8px;
   background: #fff;
-  align-items: stretch; /* sorgt dafür, dass alle Module-Karten die gleiche Breite und Höhe einnehmen */
+  align-items: stretch;
   justify-content: flex-start;
 }
 
-/* Droppable-Hover */
 .semester-cell.is-over {
   background-color: rgba(0, 128, 255, 0.15);
   border-color: #0080ff;
 }
 
-/* Module-Karten */
 .module-card {
   padding: 6px 10px;
   border: 1px solid #bbb;
@@ -80,5 +72,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%; /* alle Module in einer Spalte gleich hoch */
+  height: 100%;
 }

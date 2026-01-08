@@ -12,7 +12,6 @@ export function StudyPlanner() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);
   const [newCategoryName, setNewCategoryName] = useState("");
 
-  // Neue Modul-Felder
   const [moduleName, setModuleName] = useState("");
   const [moduleECTS, setModuleECTS] = useState<number>(0);
   const [moduleType, setModuleType] = useState<ModuleType>("pflicht");
@@ -57,7 +56,6 @@ export function StudyPlanner() {
       category: selectedCategory
     });
 
-    // Reset input fields
     setModuleName("");
     setModuleECTS(0);
     setModuleType("pflicht");
@@ -83,11 +81,9 @@ export function StudyPlanner() {
     <div>
       <h1>Study Planner</h1>
     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-      {/* JSON Import/Export */}
         <input type="file" accept="application/json" onChange={handleFileChange} />
           <button onClick={() => exportStudyPlan(state)}>Plan als JSON speichern</button>
 
-      {/* Semester / Kategorie */}
         <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
         Semester hinzufügen
         </button>
@@ -100,8 +96,6 @@ export function StudyPlanner() {
         <button onClick={addCategory}>Kategorie hinzufügen</button>
       </div>
 
-
-      {/* Modul hinzufügen */}
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
         <input
           type="text"
@@ -141,7 +135,6 @@ export function StudyPlanner() {
         <button onClick={handleAddModule}>Modul hinzufügen</button>
       </div>
 
-      {/* Grid */}
       <DndContext onDragEnd={handleDragEnd}>
         <SemesterGrid
           semesters={state.semesters}

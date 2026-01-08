@@ -10,7 +10,6 @@ type Props = {
 };
 
 export function SemesterRow({ semester, modules, categories }: Props) {
-  // Summe ECTS pro Semester
   const semesterECTS = categories.reduce((sum, category) => {
     const moduleIds = semester.modulesByCategory[category] ?? [];
     return (
@@ -24,10 +23,8 @@ export function SemesterRow({ semester, modules, categories }: Props) {
       className="semester-row"
       style={{ gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px` }}
     >
-      {/* Semester Label */}
       <div className="semester-label">{semester.label}</div>
 
-      {/* Kategorie-Zellen */}
       {categories.map((category) => {
         const categoryModuleIds = semester.modulesByCategory[category] ?? [];
         const categoryModules = categoryModuleIds.map((id) => modules[id]);
