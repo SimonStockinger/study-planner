@@ -55,7 +55,7 @@ export function studyPlanReducer(
 
 
     case "MOVE_MODULE": {
-  const { moduleId, from, to } = action;
+  const { moduleId, to } = action;
 
   if (!to.semesterId || !to.category) return state;
 
