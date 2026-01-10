@@ -1,7 +1,7 @@
 {
   "name": "study-planner",
   "private": true,
-"homepage": "https://SimonStockinger.io/study-planner",  
+"homepage": "https://SimonStockinger.github.io/study-planner",  
   "version": "0.0.0",
   "type": "module",
   "scripts": {
